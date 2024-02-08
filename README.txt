@@ -1,2 +1,2 @@
 Group Member: Ethan Ramsdell
-Contributions: Created repository, README, Main, and css.
+Contributions: Created repository, README, and Main
