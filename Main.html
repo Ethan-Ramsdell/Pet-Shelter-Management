@@ -8,49 +8,40 @@
   </head>
 <body>
     <div class="container-md">
-        <div class="row">
-            <div class="col-sm"><div class="card border-5 border-danger-subtle" style="width: 20rem;">
-              <img src="images\Sandy.jpeg" class="card-img-top" style="height: 27rem;" alt="Sandy">
-              <div class="card-body">
-                <h5 class="card-title">Sandy</h5>
-                <p class="card-text"><ul class="list-group">
-                  <li class="list-group-item"><strong>Type:</strong> Dog</li>
-                  <li class="list-group-item"><strong>Color:</strong> Golden</li>
-                  <li class="list-group-item"><strong>Breed:</strong> Golden Retriever</li>
-                  <li class="list-group-item"><strong>Age:</strong> 7 Years</li>
-                  <li class="list-group-item"><strong>Spayed / Neutered:</strong> Yes</li>
-                </ul></p>
-                <a href="Pet_Info.html" class="btn btn-primary">More Info</a>
+        <div class="row" id="petCardsContainer">
+          <script src="data.js"></script>
+          <script>
+          function generatePetCards() {
+            var container = document.getElementById("petCardsContainer");
+            container.innerHTML = '';
+
+            petsData.forEach(function(pet) {
+            var cardHTML = `
+              <div class="col-sm">
+                <div class="card border-5 border-danger-subtle" style="width: 20rem;">
+                  <img src="${pet.image}" class="card-img-top" style="height: 27rem;" alt="${pet.name}">
+                  <div class="card-body">
+                    <h5 class="card-title">${pet.name}</h5>
+                    <p class="card-text">
+                      <ul class="list-group">
+                        <li class="list-group-item"><strong>Type:</strong> ${pet.type}</li>
+                        <li class="list-group-item"><strong>Color:</strong> ${pet.color}</li>
+                        <li class="list-group-item"><strong>Breed:</strong> ${pet.breed}</li>
+                        <li class="list-group-item"><strong>Age:</strong> ${pet.age}</li>
+                        <li class="list-group-item"><strong>Spayed / Neutered:</strong> ${pet.spayedNeutered ? 'Yes' : 'No'}</li>
+                      </ul>
+                    </p>
+                    <a href="Pet_Info.html" class="btn btn-primary">More Info</a>
+                  </div>
+                </div>
               </div>
-            </div></div>
-            <div class="col-sm"><div class="card border-5 border-danger-subtle" style="width: 20rem;">
-              <img src="images\Luna.jpg" class="card-img-top" style="height: 27rem;" alt="Luna">
-              <div class="card-body">
-                <h5 class="card-title">Luna</h5>
-                <p class="card-text"><ul class="list-group">
-                  <li class="list-group-item"><strong>Type:</strong> Cat</li>
-                  <li class="list-group-item"><strong>Color:</strong> Grey with white markings</li>
-                  <li class="list-group-item"><strong>Breed:</strong> Maine Coon</li>
-                  <li class="list-group-item"><strong>Age:</strong> 3 Years</li>
-                  <li class="list-group-item"><strong>Spayed / Neutered:</strong> Yes</li>
-                </ul></p>
-                <a href="#" class="btn btn-primary">More Info</a>
-              </div>
-            </div></div>
-            <div class="col-sm"><div class="card border-5 border-primary mb-3" style="width: 20rem;">
-              <img src="images\George.jpg" class="card-img-top" style="height: 27rem;" alt="George">
-              <div class="card-body">
-                <h5 class="card-title">George</h5>
-                <p class="card-text"><ul class="list-group">
-                  <li class="list-group-item"><strong>Type:</strong> Cat</li>
-                  <li class="list-group-item"><strong>Color</strong> Blue (Gray)</li>
-                  <li class="list-group-item"><strong>Breed:</strong> British Shorthair</li>
-                  <li class="list-group-item"><strong>Age:</strong> 4 Years</li>
-                  <li class="list-group-item"><strong>Spayed / Neutered:</strong> Yes</li>
-                </ul></p>
-                <a href="#" class="btn btn-primary">More Info</a>
-              </div>
-            </div></div>
+            `;
+            container.innerHTML += cardHTML;
+          });
+        }
+
+        generatePetCards();
+            </script>
         </div>
     </div>
 </body>
